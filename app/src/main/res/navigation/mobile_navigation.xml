@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_discover">
+
+    <fragment
+        android:id="@+id/navigation_discover"
+        android:name="edu.utap.tuneder3.ui.home.HomeFragment"
+        android:label="Discover"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_discover_to_userprofile"
+            app:destination="@id/userProfileFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_likedSongs"
+        android:name="edu.utap.tuneder3.ui.likedSongs.LikedSongsFragment"
+        android:label="Liked Songs"
+        tools:layout="@layout/fragment_likedsongs">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_friends"
+        android:name="edu.utap.tuneder3.ui.friends.FriendsFragment"
+        android:label="Friends"
+        tools:layout="@layout/fragment_friends">
+        <action
+            android:id="@+id/action_friends_to_Generate"
+            app:destination="@id/navigation_generatePlaylist"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_generatePlaylist"
+        android:name="edu.utap.tuneder3.ui.playlist.PlaylistFragment"
+        android:label="Generate Playlist"
+        tools:layout="@layout/fragment_playlist" />
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="edu.utap.tuneder3.ui.home.UserProfileFragment"
+        android:label="User Profile">
+        <action
+            android:id="@+id/action_userprofile_to_discover"
+            app:destination="@id/navigation_discover"/>
+    </fragment>
+</navigation>

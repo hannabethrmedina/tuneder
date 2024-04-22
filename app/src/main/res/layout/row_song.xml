@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:layout_margin="8dp">
+    <!-- Background attribute gives the whole layout the satisfying ripple
+    effect on selection -->
+
+    <!-- Image for each ListItem row
+    We can refer to images in our drawable folder with
+    @drawable/dot for the image named dot.png -->
+    <ImageView
+        android:id="@+id/rowPic"
+        android:layout_gravity="center"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/ic_home_black_24dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        >
+        <TextView
+            android:id="@+id/rowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:fontFamily="@font/circular_std_medium_500"
+            />
+
+        <TextView
+            android:id="@+id/rowArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#a3a3a3"
+            android:textSize="16sp"
+            android:fontFamily="@font/circular_std_medium_500"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

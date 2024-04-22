@@ -1,0 +1,92 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#191414"
+    android:padding="12dp">
+    <!-- Background attribute gives the whole layout the satisfying ripple
+    effect on selection
+        android:background="?attr/selectableItemBackground"
+-->
+
+    <!-- Image for each ListItem row
+    We can refer to images in our drawable folder with
+    @drawable/dot for the image named dot.png -->
+    <ImageView
+        android:id="@+id/rowPic"
+        android:layout_gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_home_black_24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/rowText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rowText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/rowPic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/rowGenerate">
+        <TextView
+            android:id="@+id/rowName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/circular_std_4"
+            android:textSize="30sp"
+            android:text="Arthur Dent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rowName"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <TextView
+                android:id="@+id/rowLikedSongsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#a3a3a3"
+                android:fontFamily="@font/circular_bookitalic"
+                android:textSize="18sp"
+                android:text="Number of liked songs: "
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
+            <TextView
+                android:id="@+id/rowLikedSongsNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#a3a3a3"
+                android:fontFamily="@font/circular_bookitalic"
+                android:textSize="18sp"
+                android:text="0"
+                app:layout_constraintLeft_toRightOf="@id/rowLikedSongsText"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/rowGenerate"
+        android:layout_gravity="end"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:paddingStart="20dp"
+        android:src="@drawable/tunder_logo_1"
+        android:scaleType="fitCenter"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

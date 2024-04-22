@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_discover"
+        android:icon="@drawable/music_solid"
+        android:title="Discover" />
+
+    <item
+        android:id="@+id/navigation_likedSongs"
+        android:icon="@drawable/heart_solid"
+        android:title="Liked Songs" />
+
+    <item
+        android:id="@+id/navigation_friends"
+        android:icon="@drawable/user_group_solid"
+        android:title="Friends" />
+
+    <item
+        android:id="@+id/navigation_generatePlaylist"
+        android:icon="@drawable/tunder_logo_1"
+        android:title="Generate Playlist" />
+
+</menu>

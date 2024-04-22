@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "96642564764",
+    "project_id": "tuneder-4ce0e",
+    "storage_bucket": "tuneder-4ce0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96642564764:android:eb65adf9d48d87473ce359",
+        "android_client_info": {
+          "package_name": "edu.utap.tuneder3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxiIH_dMP0-cnGyUF5RUi6FsmoMVMs3_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
