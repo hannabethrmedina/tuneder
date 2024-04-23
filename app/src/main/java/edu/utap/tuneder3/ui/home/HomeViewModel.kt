@@ -103,7 +103,7 @@ class HomeViewModel : ViewModel() {
 
             dbHelper.getUserLikedSongs(userId) {
                 likedSongsList.postValue(it)
-                findTopArtists(it, 2)
+                findTopArtists(it, 3)
             }
         }
     }
@@ -116,7 +116,7 @@ class HomeViewModel : ViewModel() {
             if (song != null) {
                 dbHelper.addSongToUserLikedSongList(userId, song) {
                     likedSongsList.postValue(it)
-                    findTopArtists(it, 2)
+                    findTopArtists(it, 3)
                 }
             }
         }

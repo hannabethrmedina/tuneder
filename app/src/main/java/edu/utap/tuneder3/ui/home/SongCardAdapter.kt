@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import edu.utap.tuneder3.AudioPlayer
 import edu.utap.tuneder3.R
 import edu.utap.tuneder3.Song
 import edu.utap.tuneder3.glide.GlideHelper
@@ -17,7 +16,6 @@ class SongCardAdapter (
     private var songs: List<Song> = emptyList()
     ) : RecyclerView.Adapter<SongCardAdapter.ViewHolder>() {
 
-        private var audioPlayer: AudioPlayer = AudioPlayer()
         private var mediaPlayer: MediaPlayer? = null
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

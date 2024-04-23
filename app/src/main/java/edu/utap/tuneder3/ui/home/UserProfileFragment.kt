@@ -10,12 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.yuyakaido.android.cardstackview.CardStackLayoutManager
-import com.yuyakaido.android.cardstackview.CardStackListener
-import com.yuyakaido.android.cardstackview.CardStackView
-import com.yuyakaido.android.cardstackview.Direction
 import edu.utap.tuneder3.R
-import edu.utap.tuneder3.databinding.FragmentHomeBinding
 import edu.utap.tuneder3.databinding.FragmentUserprofileBinding
 import edu.utap.tuneder3.glide.GlideHelper
 

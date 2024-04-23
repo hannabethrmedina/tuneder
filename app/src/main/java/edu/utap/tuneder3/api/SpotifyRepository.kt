@@ -16,11 +16,10 @@ class SpotifyRepository(private val spotifyApi: SpotifyApi) {
         }
 
         response = spotifyApi.fetchRecommendations(finalToken, 1, "US", seed_artists)
-        return unpackPosts(response)
+        return unpackSong(response)
     }
 
-    private fun unpackPosts(response: SpotifyApi.RecommendationResponse): Song {
-        // XXX Write me.
+    private fun unpackSong(response: SpotifyApi.RecommendationResponse): Song {
         var result: Song? = null
         val track = response.tracks[0]
 
@@ -73,11 +72,10 @@ class SpotifyRepository(private val spotifyApi: SpotifyApi) {
             targetSpeechiness,
             targetValence
             )
-        return unpackPostsForPlaylist(response)
+        return unpackSongsForPlaylist(response)
     }
 
-    private fun unpackPostsForPlaylist(response: SpotifyApi.RecommendationResponse): List<Song> {
-        // XXX Write me.
+    private fun unpackSongsForPlaylist(response: SpotifyApi.RecommendationResponse): List<Song> {
         var result = mutableListOf<Song>()
 
         for (track in response.tracks) {
@@ -111,14 +109,13 @@ class SpotifyRepository(private val spotifyApi: SpotifyApi) {
         for (likedSong in likedSongs) {
             var id = likedSong.id
             response = spotifyApi.fetchAudioFeatures(finalToken, id)
-            result.add(unpackPostsForFeatures(response, id))
+            result.add(unpackFeatures(response, id))
         }
 
         return result
     }
 
-    private fun unpackPostsForFeatures(response: SpotifyApi.AudioFeatureResponse, id: String): Song_Features {
-        // XXX Write me.
+    private fun unpackFeatures(response: SpotifyApi.AudioFeatureResponse, id: String): Song_Features {
         val acousticness = response.acousticness
         val danceability = response.danceability
         val energy = response.energy

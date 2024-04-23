@@ -14,14 +14,14 @@ class ViewModelDBHelper {
         val songsRef = db.collection(rootCollection).document(userId).collection("likedSongs")
         songsRef.get()
             .addOnSuccessListener { result ->
-                Log.d(javaClass.simpleName, "allNotes fetch ${result!!.documents.size}")
+                Log.d(javaClass.simpleName, "userLikedSongs fetch ${result!!.documents.size}")
                 // NB: This is done on a background thread
                 resultListener(result.documents.mapNotNull {
                     it.toObject(Song::class.java)
                 })
             }
             .addOnFailureListener {
-                Log.d(javaClass.simpleName, "allNotes fetch FAILED ", it)
+                Log.d(javaClass.simpleName, "userLikedSongs fetch FAILED ", it)
                 resultListener(listOf())
             }
     }
@@ -42,14 +42,14 @@ class ViewModelDBHelper {
         val friendsRef = db.collection(rootCollection).document(userId).collection("friends")
         friendsRef.get()
             .addOnSuccessListener { result ->
-                Log.d(javaClass.simpleName, "allNotes fetch ${result!!.documents.size}")
+                Log.d(javaClass.simpleName, "userFriends fetch ${result!!.documents.size}")
                 // NB: This is done on a background thread
                 resultListener(result.documents.mapNotNull {
                     it.toObject(User::class.java)
                 })
             }
             .addOnFailureListener {
-                Log.d(javaClass.simpleName, "allNotes fetch FAILED ", it)
+                Log.d(javaClass.simpleName, "userFriends fetch FAILED ", it)
                 resultListener(listOf())
             }
     }
@@ -71,14 +71,14 @@ class ViewModelDBHelper {
         val friendLikedSongsRef = db.collection(rootCollection).document(friendUserId).collection("likedSongs")
         friendLikedSongsRef.get()
             .addOnSuccessListener { result ->
-                Log.d(javaClass.simpleName, "allNotes fetch ${result!!.documents.size}")
+                Log.d(javaClass.simpleName, "friendsLikedSongs fetch ${result!!.documents.size}")
                 // NB: This is done on a background thread
                 resultListener(result.documents.mapNotNull {
                     it.toObject(Song::class.java)
                 })
             }
             .addOnFailureListener {
-                Log.d(javaClass.simpleName, "allNotes fetch FAILED ", it)
+                Log.d(javaClass.simpleName, "friendsLikedSongs fetch FAILED ", it)
                 resultListener(listOf())
             }
     }

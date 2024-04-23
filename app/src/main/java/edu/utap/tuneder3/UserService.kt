@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import edu.utap.tuneder3.User
 import edu.utap.tuneder3.VolleyCallBack
 
+// Created following this tutorial: https://towardsdatascience.com/using-the-spotify-api-with-your-android-application-the-essentials-1a3c1bc36b9e
 class UserService(private val mQueue: RequestQueue, private val mSharedPreferences: SharedPreferences) {
 
     companion object {

@@ -13,6 +13,8 @@ import com.spotify.sdk.android.auth.AuthorizationRequest
 import com.spotify.sdk.android.auth.AuthorizationResponse
 import com.spotify_api_example.Connectors.UserService
 
+
+// Created following this tutorial: https://towardsdatascience.com/using-the-spotify-api-with-your-android-application-the-essentials-1a3c1bc36b9e
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var editor: SharedPreferences.Editor
@@ -21,9 +23,10 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var queue: RequestQueue
 
     companion object {
-        private const val CLIENT_ID = "183fa8c353be4ea4965ed1b5fb65dce9"
-        private const val CLIENT_ID_HANNA = "8eee78021080498b89e2c8620760e493"
-        private const val CLIENT_ID_NOEL = "227b1d2303a54211900eed9753bcad65"
+        // NEW USER! - REPLACE THE CLIENT ID WITH VALUE FROM DEVELOPER CONSOLE //
+        private val CLIENT_ID = "8eee78021080498b89e2c8620760e493"
+
+
         private const val REDIRECT_URI = "edu.utap.tuneder3://callback"
         private const val REQUEST_CODE = 1337
 
@@ -67,7 +70,6 @@ class SplashActivity : AppCompatActivity() {
             if (user != null) {
                 editor.putString("userid", user.id)
             }
-            // Commit instead of apply because we need the information stored immediately
             editor.commit()
             startMainActivity()
         }
@@ -81,7 +83,6 @@ class SplashActivity : AppCompatActivity() {
     private fun authenticateSpotify() {
         val builder = AuthorizationRequest.Builder(CLIENT_ID, AuthorizationResponse.Type.TOKEN, REDIRECT_URI)
         builder.setScopes(SCOPES)
-        // builder.setScopes(arrayOf("streaming"));
         val request = builder.build()
         AuthorizationClient.openLoginActivity(this, REQUEST_CODE, request)
     }
@@ -103,14 +104,9 @@ class SplashActivity : AppCompatActivity() {
                     waitForUserInfo()
                 }
 
-                // Auth flow returned an error
-                AuthorizationResponse.Type.ERROR -> {
-                    // Handle error response
-                }
-
                 // Most likely auth flow was cancelled
                 else -> {
-                    // Handle other cases
+                    return
                 }
             }
         }

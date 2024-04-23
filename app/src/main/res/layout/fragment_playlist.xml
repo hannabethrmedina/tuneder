@@ -71,7 +71,7 @@
             android:id="@+id/createPlaylistButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create in Spotify"
+            android:text="Add to Spotify"
             android:textSize="25sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"

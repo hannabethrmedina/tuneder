@@ -21,17 +21,17 @@ import edu.utap.tuneder3.R
 
 class LikedSongsFragment : Fragment() {
 
+    // NEW USER! - REPLACE THE CLIENT ID WITH VALUE FROM DEVELOPER CONSOLE //
+    private val CLIENT_ID = "8eee78021080498b89e2c8620760e493"
+
+
     private val viewModel: HomeViewModel by activityViewModels()
     private var _binding: FragmentLikedsongsBinding? = null
     private val binding get() = _binding!!
     private var spotifyAppRemote: SpotifyAppRemote? = null
-    private val CLIENT_ID = "183fa8c353be4ea4965ed1b5fb65dce9"
-    private val CLIENT_ID_HANNA = "8eee78021080498b89e2c8620760e493"
-    private val CLIENT_ID_NOEL = "227b1d2303a54211900eed9753bcad65"
     private val REDIRECT_URI = "edu.utap.tuneder3://callback"
 
     var isPlaying = true
-    var currentSong = ""
 
     override fun onStart() {
         super.onStart()
@@ -53,9 +53,7 @@ class LikedSongsFragment : Fragment() {
                 // Something went wrong when attempting to connect! Handle errors here
             }
         })
-
     }
-
 
     fun playSong(songId: String) {
         spotifyAppRemote?.let {
@@ -93,9 +91,6 @@ class LikedSongsFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
 
-//        val sharedPreferences = requireActivity().getSharedPreferences("SPOTIFY", 0)
-//        val token = sharedPreferences.getString("token", null)
-//        val userId = sharedPreferences.getString("userid", null)
 
         binding.playerPlayPauseButton.setOnClickListener {
             spotifyAppRemote?.let {
@@ -134,9 +129,6 @@ class LikedSongsFragment : Fragment() {
             override fun onStopTrackingTouch(seek: SeekBar) {
                 // The user is no longer touching the seek bar. Make sure the seek bar (and time
                 // resume their progress
-                //userModifyingSeekBar.set(false)
-                val positionInSeekBar = seek.progress
-                //viewModel.player.seekTo(positionInSeekBar)
             }
 
             }
@@ -178,7 +170,7 @@ class LikedSongsFragment : Fragment() {
         binding.playerTimeRemainingText.text = timeRemaining
     }
 
-
+    // Event callbacks unreliable. Functionality reworked.
     fun monitorPlayerState() {
         spotifyAppRemote?.playerApi?.subscribeToPlayerState()?.setEventCallback {
             Log.d("Spotify", "Event Callback Triggered")
